@@ -83,13 +83,31 @@ ASGI_APPLICATION = 'selectivechat_project.routing.application'
 #     },
 # }
 
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "asgi_redis.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+#         },
+#         "ROUTING": "selectivechat_project.routing.channel_routing",
+#     },
+# }
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "CONFIG": {
+#             "hosts": [('localhost','6379')],
+#         },
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#     },
+# }
+
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+            "hosts": [("localhost", 6379)],
         },
-        "ROUTING": "selectivechat_project.routing.channel_routing",
     },
 }
 # Database
