@@ -1,0 +1,15 @@
+:root {
+  --color-light: #d37aff;
+  --color-dark: #c54fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+
+.logo {
+  width: 150px;
+}

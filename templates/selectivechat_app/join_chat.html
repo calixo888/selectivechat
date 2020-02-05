@@ -1,0 +1,21 @@
+{% extends 'selectivechat_app/base.html' %}
+{% load staticfiles %}
+{% block head %}
+  <title>SelectiveChat - Join Chat Room</title>
+  <link rel="stylesheet" href="{% static 'selectivechat_app/chat.css' %}">
+{% endblock %}
+{% block body %}
+  <div class="container py-5">
+    <h1 class="text-center mb-3">Join a Chat Room</h1>
+    <p class="text-center mb-4">
+      Please enter in the code of the chat room you want to join.
+    </p>
+    <form enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+      <div class="search-bar">
+        <input class="search-bar-input" type="text" name="chat_id" placeholder="Chat Room ID">
+        <input class="search-bar-submit" type="submit" value="Join Chat Room">
+      </div>
+    </form>
+  </div>
+{% endblock %}

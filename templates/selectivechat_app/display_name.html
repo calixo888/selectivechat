@@ -1,13 +1,19 @@
 {% extends 'selectivechat_app/base.html' %}
 {% load staticfiles %}
 {% block head %}
-  <title>Enter Your Name</title>
+  <title>SelectiveChat - Enter Your Name</title>
+  <link rel="stylesheet" href="{% static 'selectivechat_app/chat.css' %}">
 {% endblock %}
 {% block body %}
-  <h1>Enter a Display Name</h1>
-  <form enctype="multipart/form-data" method="post">
-    {% csrf_token %}
-    <input type="text" name="display_name" placeholder="Display Name">
-    <input type="submit" value="Enter Chat Room">
-  </form>
+  <div class="container py-5">
+    <h1 class="text-center mb-3">Enter a Display Name</h1>
+    <h5 class="text-center mb-4">Entering Chat Room "{{chat_name}}"</h5>
+    <form enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+      <div class="search-bar">
+        <input class="search-bar-input" type="text" name="display_name" placeholder="Display Name">
+        <input class="search-bar-submit" type="submit" value="Enter Chat Room">
+      </div>
+    </form>
+  </div>
 {% endblock %}

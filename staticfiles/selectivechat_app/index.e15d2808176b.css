@@ -1,0 +1,80 @@
+section {
+  padding: 50px;
+}
+
+/* HEADER */
+.header {
+  height: 90vh;
+  background-image: linear-gradient(to right bottom, rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.unsplash.com/photo-1533022422823-39f3ad778be4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
+  background-size: cover;
+}
+
+.header * {
+  color: white;
+}
+
+.f-50 {
+  font-size: 50px;
+}
+
+.f-65 {
+  font-size: 65px;
+}
+
+.center-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  text-align: center;
+}
+
+.cta-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+  margin-top: 20px;
+}
+
+
+/* WHAT */
+.what {
+  background-color: #eee;
+}
+
+.what-grid {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  grid-gap: 50px;
+  align-items: center;
+}
+
+
+/* HOW */
+.how-section {
+  background-color: #eee;
+}
+
+.how {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  align-items: center;
+}
+
+.number {
+  width: 100%;
+  font-weight: bold;
+  font-size: 100px;
+  text-align: center;
+}
+
+
+/* CONTACT */
+.contact {
+  background-color: #333;
+}
+
+.contact * {
+  color: white;
+}

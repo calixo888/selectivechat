@@ -1,17 +1,47 @@
 {% extends 'selectivechat_app/base.html' %}
 {% load staticfiles %}
 {% block head %}
-  <title>Chat</title>
+  <title>SelectiveChat - {{chat_name}}</title>
+  <link rel="stylesheet" href="{% static 'selectivechat_app/chat.css' %}">
 {% endblock %}
 {% block body %}
-  <h1>Chat</h1>
-  <div class="chatbox">
-    <textarea id="chat-log" class="form-control" cols="100" rows="15"></textarea>
-    <div class="chat-submit">
-      <input id="chat-message-input" class="form-control" type="text" size="100"/>
-      <input id="chat-message-submit" class="btn btn-primary" type="button" value="Send"/>
+  <button type="button" class="btn btn-light invite-link" data-toggle="modal" data-target="#exampleModal">
+    Invite People
+  </button>
+  <div class="container">
+    <h1 class="text-center text-white my-5">{{chat_name}}</h1>
+    <div class="chatbox">
+      <textarea id="chat-log" class="form-control" cols="100" rows="15" readonly></textarea>
+      <div class="search-bar mt-3">
+        <input id="chat-message-input" class="search-bar-input" placeholder="Enter message here" type="text" size="100"/>
+        <input id="chat-message-submit" class="search-bar-submit" type="button" value="Send"/>
+      </div>
     </div>
   </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Invite People</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <span>If you want to invite someone to this chat, just send them the link below, or send them the code below!</span>
+          <div class="my-4"></div>
+          <span class="invite">https://www.{{request.META.HTTP_HOST}}/chat/{{chat_id}}/</span>
+          <div class="my-4"></div>
+          <span class="invite">{{chat_id}}</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
       var roomName = {{ room_name_json }};
 

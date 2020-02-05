@@ -1,8 +1,62 @@
 {% extends 'selectivechat_app/base.html' %}
 {% load staticfiles %}
 {% block head %}
-  <title>Index</title>
+  <title>SelectiveChat</title>
+  <link rel="stylesheet" href="{% static 'selectivechat_app/index.css' %}">
 {% endblock %}
 {% block body %}
-  <h1>Index</h1>
+  <section class="header">
+    <div class="center-container">
+      <h1 class="f-65">SelectiveChat</h1>
+      <h4>Communication is hard enough. SelectiveChat lets you commuicate with your friends without the need for an email, profile, or account.</h4>
+      <div class="cta-buttons">
+        <a href="/join-chat/" class="btn btn-outline-light">Join Chat Room!</a>
+        <a href="/create-chat/" class="btn btn-light">Create Chat Room!</a>
+      </div>
+    </div>
+  </section>
+  <section class="what">
+    <h1 class="f-50 text-center">What is SelectiveChat?</h1>
+    <div class="what-grid mt-5">
+      <img style="width: 50%; margin: auto;" src="{% static 'img/text.svg' %}">
+      <p class="what-description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+  </section>
+  <section class="how-section">
+    <h1 class="f-50 text-center">How Does SelectiveChat Work?</h1>
+    <div class="how-grid">
+      <div class="how">
+        <span class="number">1.</span>
+        <p class="mt-4">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      <div class="how">
+        <span class="number">2.</span>
+        <p class="mt-4">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      <div class="how">
+        <span class="number">3.</span>
+        <p class="mt-4">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="contact text-center">
+    <h1 class="header-primary">Let's get in touch!</h1>
+    <p class="w-50 m-auto">
+      We are happy to speak with you about any problems or feedback that you have! We guarantee a response within 24 hours!
+    </p>
+    <div class="my-4"></div>
+    <a href="mailto:calix.huang1@gmail.com">
+      <img style="width: 100px;" class="mail-icon" src="{% static 'img/mail.png' %}" alt="Mail Icon">
+    </a>
+    <br>
+    <a class="email-link" href="mailto:grocerymeals.team@gmail.com">calix.huang1@gmail.com</a>
+  </section>
 {% endblock %}

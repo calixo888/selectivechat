@@ -1,0 +1,63 @@
+body {
+  background-image: linear-gradient(to right bottom, var(--color-light), var(--color-dark));
+  background-position: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+body * {
+  color: white;
+}
+
+.search-bar {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  box-shadow: 0 5px 10px rgba(0,0,0,.15);
+}
+
+.search-bar-input {
+  border: none;
+  padding: 15px;
+  font-size: 20px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  color: black;
+  transition: all .2s;
+}
+
+.search-bar-submit {
+  background-color: var(--color-light);
+  border: none;
+  padding: 15px;
+  font-size: 20px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transition: all .2s;
+}
+
+.search-bar-submit:hover {
+  background-color: var(--color-dark);
+}
+
+.search-bar *:focus {
+  outline: none;
+}
+
+.modal * {
+  color: black;
+}
+
+.invite {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  color: black;
+  margin-top: 50px !important;
+}
+
+.invite-link {
+  position: absolute;
+  top: 65px;
+  right: 10px;
+}
