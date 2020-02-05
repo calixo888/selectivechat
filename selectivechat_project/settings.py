@@ -85,11 +85,10 @@ ASGI_APPLICATION = 'selectivechat_project.routing.application'
 
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+            "hosts": [('localhost','6379')],
         },
-        "ROUTING": "selectivechat_project.routing.application",
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
     },
 }
 # Database
