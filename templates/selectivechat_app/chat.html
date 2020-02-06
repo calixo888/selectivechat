@@ -67,17 +67,29 @@
         };
       }
     }
-      var textarea = document.querySelector("textarea");
+    var textarea = document.querySelector("textarea");
       var roomName = {{ room_name_json }};
+
+      // var chatSocket = new WebSocket(
+      //     'ws://' + window.location.host +
+      //     '/ws/chat/' + roomName + '/');
       var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
       var chatSocket = new WebSocket(ws_scheme + '://' + window.location.host + '/ws/chat/' + roomName + '/');
 
       chatSocket.onmessage = function(e) {
           var data = JSON.parse(e.data);
           var message = data['message'];
+
+          message_list = textarea.value.split("\n");
+          // console.log("Message: " + message);
+          // console.log("Last Message: " + message_list[message_list.length - 2])
+          // console.log(message == message_list[message_list.length - 2]);
+          if (message != message_list[message_list.length - 2]) {
+            notifyMe(message);
+          }
+
           document.querySelector('#chat-log').innerHTML += (message + '\n');
           textarea.scrollTop = textarea.scrollHeight;
-          notifyMe(message);
 
           textarea.scrollTop = textarea.scrollHeight;
       };
@@ -99,6 +111,11 @@
 
           // Modifying message to add name to it
           message = "{{display_name}}: " + message
+
+          chatSocket.send(JSON.stringify({
+              'message': message
+          }));
+
           document.querySelector('#chat-log').innerHTML += (message + '\n');
           textarea.scrollTop = textarea.scrollHeight;
 
