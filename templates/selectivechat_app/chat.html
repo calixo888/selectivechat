@@ -43,6 +43,31 @@
   </div>
 
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    if (!Notification) {
+      alert('Desktop notifications not available in your browser. Try Chromium.');
+      return;
+    }
+
+    if (Notification.permission !== 'granted')
+      Notification.requestPermission();
+    });
+
+
+    function notifyMe(message) {
+      if (Notification.permission !== 'granted')
+        Notification.requestPermission();
+      else {
+        var notification = new Notification('SelectiveChat - New Message!', {
+         icon: "{% static 'img/logo-cut.png' %}",
+         body: message,
+        });
+        notification.onclick = function() {
+         window.open(document.URL);
+        };
+      }
+    }
+    var textarea = document.querySelector("textarea");
       var roomName = {{ room_name_json }};
 
       // var chatSocket = new WebSocket(
@@ -56,6 +81,8 @@
           var data = JSON.parse(e.data);
           var message = data['message'];
           document.querySelector('#chat-log').innerHTML += (message + '\n');
+          notifyMe(message);
+          textarea.scrollTop = textarea.scrollHeight;
       };
 
       chatSocket.onclose = function(e) {
